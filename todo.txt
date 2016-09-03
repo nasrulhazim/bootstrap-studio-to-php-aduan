@@ -1,0 +1,24 @@
+
+Application Structure
+
+aduan
+	app
+		Controllers
+			ComplaintController.php
+				create
+				search
+		Models
+		Views
+			layouts
+				partials
+					header.php
+					footer.php
+				app.php
+			complaints
+				create.php
+				search.php
+		app.php
+	vendor
+	index.php
+		vendor/autoload.php
+		app/app.php
