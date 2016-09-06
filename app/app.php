@@ -13,3 +13,13 @@ $capsule->setAsGlobal();
 
 // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 $capsule->bootEloquent();
+
+$page = isset($_GET['page']) ? $_GET['page'] : 'complaints';
+
+require_once dirname(__FILE__) . '/Views/layouts/partials/header.php';
+
+require_once dirname(__FILE__) . '/Controllers/'. $page . '.php';
+require_once dirname(__FILE__) . '/Views/'. $page . '/index.php';
+
+
+require_once dirname(__FILE__) . '/Views/layouts/partials/footer.php';
