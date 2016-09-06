@@ -10,7 +10,7 @@ class Complaint extends Model {
 	public $fillable = [
 		'noaduan','tarikhmasa','nama','nokp','nounit','notel','kategori','masalah','status'
 	];
-	public $timestamp = false;
+	public $timestamps = false;
 
 	public function category()
 	{

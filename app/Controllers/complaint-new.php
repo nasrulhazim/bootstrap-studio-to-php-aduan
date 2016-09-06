@@ -1,15 +1,16 @@
 <?php
 
 use App\Controllers\ComplaintController;
+use App\Utilities\Response;
 
 $data = [
 	'nama' => $_POST['name'],
 	'nokp' => $_POST['ic'],
 	'notel' => $_POST['phone'],
 	'unit' => $_POST['unit'],
-	'tarikhmasa' => data('Y-m-d h:is'),
-	'kategory' => $_POST['category_id'],
-	'aduan' => $_POST['complaint']
+	'tarikhmasa' => date('Y-m-d h:is'),
+	'kategori' => $_POST['category'],
+	'aduan' => $_POST['problem']
 ];
 
 $complaint = ComplaintController::store($data);

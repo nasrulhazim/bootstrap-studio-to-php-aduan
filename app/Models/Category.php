@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model {
 	public $table = 'kategori';
 	public $primary = 'idkat';
+	public $timestamps = false;
 
 	public function complaints()
 	{

@@ -16,9 +16,35 @@ jQuery(document).ready(function($) {
 				$('#search-complaint_status').attr('class', 'label label-'+data.data.class);
 				$.fn.fullpage.moveTo(2);
 			} else {
-				//alert(data.data.message);
+				alert('Complaint details requested not found');
 			}
 			console.log(data);
 		});
+	});
+
+	$('#new-complaint-btn').click(function(event) {
+		/* Act on the event */
+		var data = {};
+		
+		$.each($('form[name="form-new-complaint"] :input'), function(index, val) {
+			if(val != "") {
+				var input = $(val);
+				data[val.name] = input.val();	
+			}
+		});
+
+		data['ajax'] = 1;
+		data['page'] = 'complaint-new';
+
+		$.post('/', data, function(data, textStatus, xhr) {
+			if(data.status) {
+				alert('Complaint submmited. Your complaint ID is ' + data.data.noaduan);
+			} else {
+				alert('Unable to submit complaint, please try again');
+			}
+		});
+
+		event.preventDefault();
+
 	});
 });

@@ -68,28 +68,44 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 <h4 class="modal-title">New Complaint</h4></div>
             <div class="modal-body">
-                <form method="post" target="_self">
+                <form method="post" target="_self" name="form-new-complaint">
                     <div class="form-group">
-                        <label class="control-label">E-mail </label>
-                        <input class="form-control" type="email" name="email">
+                        <label class="control-label">Name </label>
+                        <input class="form-control" type="text" required name="name">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">IC </label>
+                        <input class="form-control" type="text" required name="ic">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Phone </label>
+                        <input class="form-control" type="text" required name="phone">
                     </div>
                     <div class="form-group">
                         <label class="control-label">Subject </label>
-                        <input class="form-control" type="email" name="subject">
+                        <input class="form-control" type="text" required name="subject">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Unit </label>
+                        <select class="form-control" required name="unit">
+                            <?php foreach ($units as $key => $value): ?>
+                                <option value="<?php echo $value['idunit']; ?>"><?php echo $value['unit']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Category </label>
-                        <select class="form-control" name="category">
+                        <select class="form-control" required name="category">
                             <?php foreach ($categories as $key => $value): ?>
                                 <option value="<?php echo $value['idkat']; ?>"><?php echo $value['kategori']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Issue </label>
-                        <textarea class="form-control" name="issue"></textarea>
+                        <label class="control-label">Problem </label>
+                        <textarea class="form-control" required name="problem"></textarea>
                     </div>
-                    <button class="btn btn-success" type="submit">Submit </button>
+                    <button id="new-complaint-btn" class="btn btn-success" type="submit">Submit </button>
                 </form>
             </div>
         </div>
