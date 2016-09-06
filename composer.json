@@ -3,8 +3,14 @@
         "illuminate/database": "^5.3"
     },
     "autoload": {
+        "files": [
+            "app/helpers/status.php",
+            "app/helpers/complaint.php"
+        ],
         "psr-4": {
-            "App\\Models\\": "app/Models"
+            "App\\Models\\": "app/Models",
+            "App\\Controllers\\": "app/Controllers",
+            "App\\Utilities\\": "app/Utilities"
         }
     }
 }

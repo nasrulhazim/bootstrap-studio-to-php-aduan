@@ -15,10 +15,30 @@ aduan
 					footer.php
 				app.php
 			complaints
-				create.php
-				search.php
+				index.php
 		app.php
 	vendor
 	index.php
 		vendor/autoload.php
 		app/app.php
+
+
+Statuses
+
+if($status == 1){
+	$stat = "Belum ambil Tindakan";
+}elseif($status == 2){
+	$stat = "Dalam Proses";
+}elseif($status == 3){
+	$stat = "Dalam tindakan syarikat luar(outsource)";
+}elseif($status == 4){
+	$stat = "Dalam Proses Pelupusan";
+}elseif($status == 6){
+	$stat = "Selesai(Penggantian)";
+}elseif($status == 7){
+	$stat = "Selesai(Pelupusan)";
+}elseif($status == 8){
+	$stat = "Selesai(Lain-lain)";
+}else{
+	$stat = "Selesai";
+}	

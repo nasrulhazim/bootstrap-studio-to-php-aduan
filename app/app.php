@@ -14,12 +14,17 @@ $capsule->setAsGlobal();
 // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 $capsule->bootEloquent();
 
-$page = isset($_GET['page']) ? $_GET['page'] : 'complaints';
+$page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 'complaints';
+$ajax = isset($_REQUEST['ajax']) ? true : false;
 
-require_once dirname(__FILE__) . '/Views/layouts/partials/header.php';
+if(!$ajax) {
+	require_once dirname(__FILE__) . '/Views/layouts/partials/header.php';
 
-require_once dirname(__FILE__) . '/Controllers/'. $page . '.php';
-require_once dirname(__FILE__) . '/Views/'. $page . '/index.php';
+	require_once dirname(__FILE__) . '/Controllers/'. $page . '.php';
+	require_once dirname(__FILE__) . '/Views/'. $page . '/index.php';
 
+	require_once dirname(__FILE__) . '/Views/layouts/partials/footer.php';	
+} else {
+	require_once dirname(__FILE__) . '/Controllers/'. $page . '.php';
+}
 
-require_once dirname(__FILE__) . '/Views/layouts/partials/footer.php';

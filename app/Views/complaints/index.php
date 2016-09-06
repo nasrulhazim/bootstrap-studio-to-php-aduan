@@ -5,7 +5,8 @@
         "js/Full-Page1.js",
         "js/Full-Page2.js",
         "js/Full-Page3.js",
-        "js/Full-Page.js"
+        "js/Full-Page.js",
+        "js/complaint.js"
     ];
 ?>
 <div id="fullpage">
@@ -18,12 +19,12 @@
                         <form>
                             <div class="form-group">
                                 <div class="input-group input-group-lg">
-                                    <input class="form-control" type="text" name="complaint_id">
-                                    <div class="input-group-btn"><a class="btn btn-info" role="button" href="#complaint-status"><i class="fa fa-search"></i></a></div>
+                                    <input class="form-control" type="text" name="complaint_id" id="complaint_id">
+                                    <div class="input-group-btn"><a id="search-btn" class="btn btn-info" role="button" href="#"><i class="fa fa-search"></i></a></div>
                                 </div>
                             </div>
                         </form>
-                        <p class="help-block">Enter your complaint id</p><a class="btn btn-default btn-block btn-xs" role="button" href="" data-toggle="modal" data-target="#modal-new-complaint"><i class="fa fa-plus"></i> New Complaint</a></div>
+                        <p class="help-block">Enter your complaint id</p><a class="btn btn-success btn-block" role="button" href="" data-toggle="modal" data-target="#modal-new-complaint"><i class="fa fa-plus"></i> New Complaint</a></div>
                 </div>
             </div>
         </div>
@@ -39,17 +40,17 @@
                                 <thead>
                                     <tr>
                                         <th># </th>
-                                        <th>Subject </th>
+                                        <th>Problem </th>
                                         <th>Category </th>
                                         <th>Status </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>HW1/09/2016 </td>
-                                        <td>Monitor Damaged</td>
-                                        <td>Hardware </td>
-                                        <td><span class="label label-primary">In Progress</span></td>
+                                        <td id="search-complaint_id">HW1/09/2016 </td>
+                                        <td id="search-complaint_problem">Monitor Damaged</td>
+                                        <td id="search-complaint_category">Hardware </td>
+                                        <td><span id="search-complaint_status" class="label">In Progress</span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -79,11 +80,9 @@
                     <div class="form-group">
                         <label class="control-label">Category </label>
                         <select class="form-control" name="category">
-                            <optgroup label="This is a group">
-                                <option value="12" selected="">This is item 1</option>
-                                <option value="13">This is item 2</option>
-                                <option value="14">This is item 3</option>
-                            </optgroup>
+                            <?php foreach ($categories as $key => $value): ?>
+                                <option value="<?php echo $value['idkat']; ?>"><?php echo $value['kategori']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group">
