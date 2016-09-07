@@ -1,7 +1,5 @@
 <?php
     $scripts = [
-        "js/jquery.min.js",
-        "bootstrap/js/bootstrap.min.js",
         "js/Full-Page1.js",
         "js/Full-Page2.js",
         "js/Full-Page3.js",

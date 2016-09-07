@@ -8,7 +8,7 @@ $data = [
 	'nokp' => $_POST['ic'],
 	'notel' => $_POST['phone'],
 	'unit' => $_POST['unit'],
-	'tarikhmasa' => date('Y-m-d h:is'),
+	'tarikhmasa' => date('Y-m-d h:i:s'),
 	'kategori' => $_POST['category'],
 	'aduan' => $_POST['problem']
 ];
